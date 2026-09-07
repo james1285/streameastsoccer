@@ -1,0 +1,102 @@
+/* Append to main.css: Multi-Sport Top Strip styles matching user reference image */
+
+/* Sports Strip Container */
+.sports-strip-container {
+  background: linear-gradient(90deg, #c41224 0%, #a80c1b 50%, #850614 100%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 101;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.sports-strip-container::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Opera */
+}
+
+.sports-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+  height: 42px;
+  gap: 0.25rem;
+}
+
+.sport-strip-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.85rem;
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  border-radius: var(--radius-sm);
+  position: relative;
+}
+
+.sport-strip-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.sport-strip-item.active {
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--accent-green-bright);
+  box-shadow: inset 0 -2px 0 var(--accent-green-bright);
+}
+
+.sport-strip-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background-color: var(--accent-green);
+}
+
+/* USA Soccer Pyramid Badge */
+.badge-usa-pyramid {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(59, 130, 246, 0.15));
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #f8fafc;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+}
+
+/* Pyramid Tier Cards */
+.pyramid-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.pyramid-tier-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.pyramid-tier-card:hover {
+  border-color: var(--border-green);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}

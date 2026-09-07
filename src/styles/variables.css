@@ -1,0 +1,65 @@
+:root {
+  /* Colors - Deep Dark Football Pitch Palette */
+  --bg-pitch: #06090d;
+  --bg-primary: #0a0e14;
+  --bg-surface: #111721;
+  --bg-card: #151d2a;
+  --bg-card-hover: #1b2636;
+  --bg-elevated: #1e2a3b;
+  --bg-glass: rgba(17, 23, 33, 0.75);
+
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.14);
+  --border-green: rgba(0, 230, 118, 0.35);
+  --border-green-hover: rgba(0, 230, 118, 0.7);
+
+  /* Accents - Vibrant Football Green */
+  --accent-green: #00e676;
+  --accent-green-bright: #39ff85;
+  --accent-green-hover: #00c853;
+  --accent-green-dark: #059669;
+  --accent-green-dim: rgba(0, 230, 118, 0.12);
+  --accent-green-glow: rgba(0, 230, 118, 0.25);
+
+  /* Status Colors */
+  --status-live: #ff334b;
+  --status-live-dim: rgba(255, 51, 75, 0.15);
+  --status-upcoming: #38bdf8;
+  --status-upcoming-dim: rgba(56, 189, 248, 0.12);
+  --status-finished: #94a3b8;
+  --status-finished-dim: rgba(148, 163, 184, 0.12);
+
+  /* Typography */
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --text-green: #00e676;
+
+  /* Elevations & Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 10px 35px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 24px rgba(0, 230, 118, 0.2);
+  --shadow-live: 0 0 16px rgba(255, 51, 75, 0.4);
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Layout */
+  --container-max-width: 1240px;
+  --header-height: 72px;
+}

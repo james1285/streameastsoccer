@@ -1,0 +1,16 @@
+# robots.txt for StreamEast Soccer (https://www.streameastsoccer.live)
+User-agent: *
+Allow: /
+
+# Directives for major search crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# Sitemap Index
+Sitemap: https://www.streameastsoccer.live/sitemap.xml
