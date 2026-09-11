@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ur-Latn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Football Kaise Khelein — Ek Mukammal Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pitch-dark:#152a1c;
+    --pitch:#1f4a2c;
+    --pitch-light:#2f6b3e;
+    --chalk:#f4f1e8;
+    --chalk-dim:#cfd6c8;
+    --goal-orange:#e2632b;
+    --ink:#0c1a10;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--chalk);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    line-height:1.55;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Anton', sans-serif;
+    font-weight:400;
+    letter-spacing:0.01em;
+    line-height:0.95;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:var(--pitch-dark);
+    border-bottom:3px solid var(--goal-orange);
+  }
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; height:64px;}
+  .brand{color:var(--chalk); font-family:'Anton',sans-serif; font-size:1.3rem; letter-spacing:0.02em;}
+  .brand span{color:var(--goal-orange);}
+  nav ul{list-style:none; display:flex; gap:28px;}
+  nav a{color:var(--chalk-dim); text-decoration:none; font-size:0.95rem; font-weight:500; transition:color .2s;}
+  nav a:hover{color:var(--chalk);}
+  .nav-toggle{display:none; background:none; border:none; color:var(--chalk); font-size:1.6rem; cursor:pointer;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:var(--pitch);
+    color:var(--chalk);
+    overflow:hidden;
+    padding:88px 0 64px;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.045) 0 90px, rgba(0,0,0,0.03) 90px 180px);
+    pointer-events:none;
+  }
+  .hero-grid{
+    position:relative; z-index:1;
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px; align-items:center;
+  }
+  .hero h1{font-size:clamp(2.6rem, 5.5vw, 4.4rem); color:var(--chalk);}
+  .hero h1 em{font-style:normal; color:var(--goal-orange);}
+  .hero p.lede{margin-top:20px; font-size:1.15rem; max-width:46ch; color:var(--chalk-dim);}
+  .hero .cta-row{margin-top:32px; display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    display:inline-block; padding:14px 26px; border-radius:2px;
+    font-weight:600; text-decoration:none; font-size:0.98rem;
+    transition:transform .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--goal-orange); color:var(--ink);}
+  .btn-ghost{border:2px solid var(--chalk-dim); color:var(--chalk);}
+
+  .pitch-diagram{width:100%; max-width:420px; justify-self:center;}
+
+  /* ---------- SECTION HEADERS ---------- */
+  section{padding:72px 0;}
+  .section-head{max-width:56ch; margin-bottom:44px;}
+  .section-head .kicker{
+    color:var(--pitch-light); font-weight:700; font-size:0.85rem;
+  }
+  .section-head h2{font-size:clamp(1.8rem, 3.6vw, 2.6rem); margin-top:6px; color:var(--ink);}
+  .section-head p{margin-top:14px; color:#3a4a3e; font-size:1.05rem;}
+
+  /* ---------- BASICS (goal explainer) ---------- */
+  .basics{background:var(--chalk);}
+  .basics-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+  .basic-card{
+    background:#fff; border:1px solid #e2ddcd; border-radius:4px;
+    padding:28px; position:relative;
+  }
+  .basic-card h3{font-size:1.3rem; margin-bottom:10px; color:var(--pitch);}
+  .basic-card p{color:#4a544c; font-size:0.98rem;}
+  .basic-card .icon{margin-bottom:16px;}
+
+  /* ---------- STEPS (how a match works) ---------- */
+  .steps{background:var(--ink); color:var(--chalk);}
+  .steps .section-head p{color:var(--chalk-dim);}
+  .steps .section-head h2{color:var(--chalk);}
+  .step-list{counter-reset:step;}
+  .step{
+    display:grid; grid-template-columns:80px 1fr; gap:24px;
+    padding:26px 0; border-top:1px solid rgba(244,241,232,0.15);
+  }
+  .step:last-child{border-bottom:1px solid rgba(244,241,232,0.15);}
+  .step .num{
+    counter-increment:step; font-family:'Anton',sans-serif;
+    font-size:2.2rem; color:var(--goal-orange);
+  }
+  .step .num::before{content: counter(step, decimal-leading-zero);}
+  .step h3{font-size:1.15rem; color:var(--chalk); margin-bottom:6px; font-family:'Work Sans',sans-serif; font-weight:700;}
+  .step p{color:var(--chalk-dim); font-size:0.98rem; max-width:60ch;}
+
+  /* ---------- POSITIONS (formation diagram) ---------- */
+  .positions{background:var(--chalk);}
+  .pos-layout{display:grid; grid-template-columns:0.9fr 1.1fr; gap:48px; align-items:center;}
+  .formation-svg{width:100%; height:auto;}
+  .pos-list{list-style:none; display:flex; flex-direction:column; gap:18px;}
+  .pos-list li{display:flex; gap:16px; align-items:flex-start;}
+  .pos-dot{
+    width:14px; height:14px; border-radius:50%; margin-top:6px; flex-shrink:0;
+  }
+  .pos-list h4{font-size:1.05rem; color:var(--ink); margin-bottom:3px;}
+  .pos-list p{font-size:0.93rem; color:#4a544c;}
+
+  /* ---------- SKILLS ---------- */
+  .skills{background:var(--pitch-dark); color:var(--chalk);}
+  .skills .section-head h2{color:var(--chalk);}
+  .skills .section-head p{color:var(--chalk-dim);}
+  .skill-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:2px; background:rgba(244,241,232,0.15);}
+  .skill{background:var(--pitch-dark); padding:32px;}
+  .skill h3{font-size:1.2rem; color:var(--goal-orange); margin-bottom:10px;}
+  .skill p{color:var(--chalk-dim); font-size:0.96rem;}
+
+  /* ---------- FOULS QUICK REF ---------- */
+  .fouls{background:var(--chalk);}
+  .foul-table{width:100%; border-collapse:collapse; margin-top:8px;}
+  .foul-table th{
+    text-align:left; font-size:0.8rem; text-transform:none;
+    color:var(--pitch); font-weight:700; padding:12px 16px; border-bottom:2px solid var(--ink);
+  }
+  .foul-table td{padding:16px; border-bottom:1px solid #e2ddcd; font-size:0.96rem; vertical-align:top;}
+  .foul-table tr td:first-child{font-weight:600; color:var(--ink); white-space:nowrap;}
+  .card-swatch{display:inline-block; width:14px; height:20px; border-radius:2px; margin-right:8px; vertical-align:middle;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--pitch-dark); color:var(--chalk-dim); padding:40px 0;}
+  footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:0.9rem;}
+  footer strong{color:var(--chalk);}
+
+  @media (max-width: 820px){
+    .hero-grid{grid-template-columns:1fr;}
+    .pitch-diagram{max-width:320px;}
+    .basics-grid{grid-template-columns:1fr;}
+    .pos-layout{grid-template-columns:1fr;}
+    .skill-grid{grid-template-columns:1fr;}
+    nav ul{position:fixed; top:64px; left:0; right:0; background:var(--pitch-dark);
+      flex-direction:column; padding:16px 24px; gap:0; display:none; border-bottom:3px solid var(--goal-orange);}
+    nav ul.open{display:flex;}
+    nav ul li{padding:12px 0; border-bottom:1px solid rgba(244,241,232,0.1);}
+    .nav-toggle{display:block;}
+    .step{grid-template-columns:56px 1fr;}
+    .step .num{font-size:1.6rem;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">FUTBOL<span>.</span>GUIDE</div>
+    <button class="nav-toggle" aria-label="Menu toggle" id="navToggle">☰</button>
+    <ul id="navMenu">
+      <li><a href="#basics">Bunyadi Usool</a></li>
+      <li><a href="#steps">Match Kaise Chalta Hai</a></li>
+      <li><a href="#positions">Positions</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#fouls">Fouls &amp; Cards</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Football <em>Kaise</em><br>Khelte Hain</h1>
+      <p class="lede">Ek gol, gyarah khiladi, aur nabbe minute ka game. Yahan aapko soccer ball khelne ke bunyadi usool, positions, skills aur fouls sab kuch seedhe seedhe alfaaz mein samjhaya gaya hai.</p>
+      <div class="cta-row">
+        <a href="#basics" class="btn btn-primary">Shuru Karein</a>
+        <a href="#steps" class="btn btn-ghost">Match Ka Tareeqa</a>
+      </div>
+    </div>
+    <svg class="pitch-diagram" viewBox="0 0 320 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Football pitch diagram with a ball at the centre spot">
+      <rect x="6" y="6" width="308" height="408" rx="4" fill="none" stroke="#f4f1e8" stroke-opacity="0.55" stroke-width="3"/>
+      <line x1="6" y1="210" x2="314" y2="210" stroke="#f4f1e8" stroke-opacity="0.55" stroke-width="3"/>
+      <circle cx="160" cy="210" r="46" fill="none" stroke="#f4f1e8" stroke-opacity="0.55" stroke-width="3"/>
+      <rect x="70" y="6" width="180" height="64" fill="none" stroke="#f4f1e8" stroke-opacity="0.55" stroke-width="3"/>
+      <rect x="70" y="350" width="180" height="64" fill="none" stroke="#f4f1e8" stroke-opacity="0.55" stroke-width="3"/>
+      <rect x="118" y="6" width="84" height="26" fill="none" stroke="#f4f1e8" stroke-opacity="0.55" stroke-width="3"/>
+      <rect x="118" y="388" width="84" height="26" fill="none" stroke="#f4f1e8" stroke-opacity="0.55" stroke-width="3"/>
+      <circle cx="160" cy="210" r="15" fill="#e2632b"/>
+      <path d="M160 198 l7 5 -3 8 -8 0 -3 -8 z" fill="#0c1a10" opacity="0.55"/>
+    </svg>
+  </div>
+</header>
+
+<section class="basics" id="basics">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Bunyadi Usool</div>
+      <h2>Game Shuru Karne Se Pehle Ye Teen Baatein Samjhein</h2>
+      <p>Football ka maqsad simple hai — ball ko doosri team ke goal mein dalna, aur apna goal bachana. Lekin uske liye kuch bunyadi rules zaroor jaan lein.</p>
+    </div>
+    <div class="basics-grid">
+      <div class="basic-card">
+        <svg class="icon" width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="17" fill="none" stroke="#1f4a2c" stroke-width="3"/><path d="M20 9 l6 4 -2 7 -8 0 -2 -7z" fill="#1f4a2c"/></svg>
+        <h3>Do Teamein, Gyarah-Gyarah Khiladi</h3>
+        <p>Har team mein ek goalkeeper aur das field players hote hain. Sirf goalkeeper apne penalty box ke andar hath se ball choo sakta hai — baqi sab sirf pair, seena ya sar istemal karte hain.</p>
+      </div>
+      <div class="basic-card">
+        <svg class="icon" width="40" height="40" viewBox="0 0 40 40"><rect x="6" y="14" width="28" height="16" rx="2" fill="none" stroke="#1f4a2c" stroke-width="3"/><line x1="20" y1="14" x2="20" y2="30" stroke="#1f4a2c" stroke-width="3"/></svg>
+        <h3>Match Ka Waqt</h3>
+        <p>Professional match do halves mein hota hai, har half 45 minute ka. Beech mein 15 minute ka break hota hai jise half-time kehte hain.</p>
+      </div>
+      <div class="basic-card">
+        <svg class="icon" width="40" height="40" viewBox="0 0 40 40"><path d="M20 6 L34 34 L6 34 Z" fill="none" stroke="#1f4a2c" stroke-width="3"/><line x1="20" y1="16" x2="20" y2="26" stroke="#1f4a2c" stroke-width="3"/><circle cx="20" cy="29" r="1.5" fill="#1f4a2c"/></svg>
+        <h3>Goal Kaise Banta Hai</h3>
+        <p>Jab poori ball goal-line paar karke goalpost ke andar chali jaaye, tab ek goal count hota hai. Jis team ke zyada goal hon, woh match jeet jaati hai.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="steps" id="steps">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker" style="color:var(--goal-orange);">Match Ka Tareeqa</div>
+      <h2>Ek Match Kis Tarah Aage Badhta Hai</h2>
+      <p>Agar aap pehli baar khel rahe hain ya dekh rahe hain, ye sequence yaad rakhein.</p>
+    </div>
+    <div class="step-list">
+      <div class="step">
+        <div class="num"></div>
+        <div>
+          <h3>Kick-off Se Shuruaat</h3>
+          <p>Match center circle se ek team ke kick-off se shuru hota hai. Dono halves ki shuruaat aur har goal ke baad bhi kick-off dobara hota hai.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num"></div>
+        <div>
+          <h3>Ball Ko Aage Le Jaana</h3>
+          <p>Khiladi passing aur dribbling se ball ko opponent ke goal ki taraf le jaate hain. Ball sirf pair, sar ya seene se control ki jaati hai.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num"></div>
+        <div>
+          <h3>Ball Line Se Bahar Chali Jaaye</h3>
+          <p>Agar ball sideline se bahar jaaye to throw-in hota hai. Agar goal-line se bahar jaaye to goal-kick ya corner-kick diya jaata hai, is baat par ke aakhri touch kis team ka tha.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num"></div>
+        <div>
+          <h3>Foul Ya Offside Par Whistle</h3>
+          <p>Referee foul ya offside par khel roak kar free-kick deta hai. Penalty box ke andar foul hone par penalty kick di jaati hai.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num"></div>
+        <div>
+          <h3>Full-time Par Faisla</h3>
+          <p>Dono halves khatam hone ke baad jis team ke zyada goals hon woh jeetti hai. Barabar hone par, tournament ke rules ke mutabiq extra-time ya penalty shootout ho sakta hai.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="positions" id="positions">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Positions</div>
+      <h2>Team Mein Har Khiladi Ka Kaam</h2>
+      <p>Ek aam formation (4-4-2) mein khiladi is tarah pitch par khade hote hain — defense se attack tak.</p>
+    </div>
+    <div class="pos-layout">
+      <svg class="formation-svg" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="4-4-2 formation diagram">
+        <rect x="4" y="4" width="292" height="392" fill="#1f4a2c" rx="4"/>
+        <rect x="4" y="4" width="292" height="392" fill="none" stroke="#f4f1e8" stroke-opacity="0.5" stroke-width="2" rx="4"/>
+        <line x1="4" y1="200" x2="296" y2="200" stroke="#f4f1e8" stroke-opacity="0.5" stroke-width="2"/>
+        <circle cx="150" cy="200" r="34" fill="none" stroke="#f4f1e8" stroke-opacity="0.5" stroke-width="2"/>
+        <rect x="90" y="330" width="120" height="46" fill="none" stroke="#f4f1e8" stroke-opacity="0.5" stroke-width="2"/>
+        <!-- GK -->
+        <circle cx="150" cy="368" r="9" fill="#f4f1e8"/>
+        <!-- Defenders -->
+        <circle cx="40" cy="300" r="9" fill="#e2632b"/>
+        <circle cx="105" cy="310" r="9" fill="#e2632b"/>
+        <circle cx="195" cy="310" r="9" fill="#e2632b"/>
+        <circle cx="260" cy="300" r="9" fill="#e2632b"/>
+        <!-- Midfield -->
+        <circle cx="40" cy="200" r="9" fill="#f4f1e8"/>
+        <circle cx="110" cy="185" r="9" fill="#f4f1e8"/>
+        <circle cx="190" cy="185" r="9" fill="#f4f1e8"/>
+        <circle cx="260" cy="200" r="9" fill="#f4f1e8"/>
+        <!-- Forwards -->
+        <circle cx="115" cy="80" r="9" fill="#f4a15d"/>
+        <circle cx="185" cy="80" r="9" fill="#f4a15d"/>
+      </svg>
+      <ul class="pos-list">
+        <li>
+          <span class="pos-dot" style="background:#f4f1e8; border:2px solid #1f4a2c;"></span>
+          <div><h4>Goalkeeper (GK)</h4><p>Goal bachata hai, sirf apne penalty box ke andar ball ko hath se pakad sakta hai.</p></div>
+        </li>
+        <li>
+          <span class="pos-dot" style="background:#e2632b;"></span>
+          <div><h4>Defenders</h4><p>Apni goal-line ke qareeb rehte hain, opponent ke forwards ko rokte hain aur ball clear karte hain.</p></div>
+        </li>
+        <li>
+          <span class="pos-dot" style="background:#f4f1e8; border:2px solid #1f4a2c;"></span>
+          <div><h4>Midfielders</h4><p>Defense aur attack ke darmiyan link banate hain — ball wapas jeetna aur passing dono unka kaam hai.</p></div>
+        </li>
+        <li>
+          <span class="pos-dot" style="background:#f4a15d;"></span>
+          <div><h4>Forwards / Strikers</h4><p>Opponent ke goal ke sabse qareeb khelte hain aur zyada tar goals yehi karte hain.</p></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="skills" id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker" style="color:var(--goal-orange);">Skills</div>
+      <h2>Char Skills Jo Har Beginner Ko Practice Karni Chahiye</h2>
+      <p>Match khelne se pehle inhein akele ya dost ke saath practice karein.</p>
+    </div>
+  </div>
+  <div class="skill-grid">
+    <div class="skill">
+      <h3>Dribbling</h3>
+      <p>Ball ko chhote-chhote touches se apne control mein rakhte hue aage badhna. Ball ko apne pairon se zyada door na jaane dein.</p>
+    </div>
+    <div class="skill">
+      <h3>Passing</h3>
+      <p>Andar wale pair (inside of the foot) se pass dena sabse zyada accurate hota hai. Pass dete waqt sar utha kar dekhein ki saathi kahan hai.</p>
+    </div>
+    <div class="skill">
+      <h3>Ball Control (Trapping)</h3>
+      <p>Aati hui ball ko pair, seena ya jaangh se cushion karke apne qadmon ke qareeb rok lena, taake agla move fauran ho sake.</p>
+    </div>
+    <div class="skill">
+      <h3>Shooting</h3>
+      <p>Ghair-support wala pair ball ke barabar rakhein, nazrein ball par, aur laces (pair ka upri hissa) se sidha shoot karein.</p>
+    </div>
+  </div>
+</section>
+
+<section class="fouls" id="fouls">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Fouls &amp; Cards</div>
+      <h2>Referee Kab Whistle Bajata Hai</h2>
+      <p>Ye common fouls aur unki saza ek nazar mein.</p>
+    </div>
+    <table class="foul-table">
+      <thead>
+        <tr><th>Situation</th><th>Referee Ka Faisla</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Opponent ko dhakka ya trip karna</td><td>Free-kick, agar penalty box ke andar ho to penalty kick</td></tr>
+        <tr><td>Handball (jaan boojh kar hath se ball chhona)</td><td>Free-kick us jagah se jahan handball hua</td></tr>
+        <tr><td><span class="card-swatch" style="background:#f2c14e;"></span>Reckless ya baar-baar foul</td><td>Yellow card — ek warning</td></tr>
+        <tr><td><span class="card-swatch" style="background:#c1272d;"></span>Khatarnak foul ya doosri yellow</td><td>Red card — khiladi field se bahar, team ek player kam</td></tr>
+        <tr><td>Attacking player pass ke waqt goalkeeper se aage aur last defender se aage ho</td><td>Offside — free-kick doosri team ko</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><strong>FUTBOL.GUIDE</strong> — Beginners ke liye asaan football guide.</div>
+    <div>Practice karte rahein, match dekhte rahein.</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', function(){
+    document.getElementById('navMenu').classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>
