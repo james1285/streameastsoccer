@@ -93,6 +93,15 @@ export function updateSEO({
 
   const schemaToInject = structuredData ? structuredData : baseSchema;
   scriptEl.textContent = JSON.stringify(schemaToInject, null, 2);
+
+  // Synchronize Google Analytics page view on SPA route navigation
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', 'page_view', {
+      page_title: title,
+      page_location: window.location.href,
+      page_path: window.location.pathname
+    });
+  }
 }
 
 /**
