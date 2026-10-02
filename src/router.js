@@ -94,9 +94,15 @@ export function handleRoute() {
     const sportSlug = path.replace('/sport/', '');
     renderSportPage(mainContent, sportSlug);
   } else if (SPORT_SLUGS.includes(path.slice(1))) {
-    // e.g. /nfl, /nba, /mlb, /ufc, /f1
+    // Canonicalize e.g. /nfl, /nba, /mlb, /ufc, /f1 to /sport/:sport
     const sportSlug = path.slice(1);
-    renderSportPage(mainContent, sportSlug);
+    if (sportSlug === 'soccer') {
+      history.replaceState(null, null, '/');
+      renderHomePage(mainContent);
+    } else {
+      history.replaceState(null, null, `/sport/${sportSlug}`);
+      renderSportPage(mainContent, sportSlug);
+    }
   } else if (LEAGUE_SLUGS.includes(path.slice(1))) {
     const slug = path.slice(1);
     renderLeagueDetailPage(mainContent, slug);

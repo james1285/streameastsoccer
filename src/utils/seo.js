@@ -26,6 +26,7 @@ export function updateSEO({
   canonical = DEFAULT_SEO.canonical,
   type = DEFAULT_SEO.type,
   image = DEFAULT_SEO.image,
+  robots = 'index, follow',
   structuredData = null
 } = {}) {
   // Update document title
@@ -51,6 +52,7 @@ export function updateSEO({
   // Primary Meta Tags
   setMeta('meta[name="title"]', 'content', title);
   setMeta('meta[name="description"]', 'content', description);
+  setMeta('meta[name="robots"]', 'content', robots);
 
   // Canonical link
   let canonicalEl = document.querySelector('link[rel="canonical"]');

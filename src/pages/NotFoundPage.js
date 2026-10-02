@@ -8,7 +8,8 @@ export function renderNotFoundPage(container) {
   updateSEO({
     title: '404 Page Not Found | StreamEast Soccer',
     description: 'The requested soccer page, match, or schedule could not be found on StreamEast Soccer.',
-    canonical: getCanonicalUrl('/404')
+    canonical: getCanonicalUrl('/404'),
+    robots: 'noindex, nofollow'
   });
 
   container.innerHTML = `

@@ -1,4 +1,6 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": false,
   "redirects": [
     {
       "source": "/(.*)",
@@ -24,6 +26,66 @@
     {
       "source": "/sitemap_index.xml",
       "destination": "/sitemap.xml",
+      "permanent": true
+    },
+    {
+      "source": "/nfl",
+      "destination": "/sport/nfl",
+      "permanent": true
+    },
+    {
+      "source": "/nba",
+      "destination": "/sport/nba",
+      "permanent": true
+    },
+    {
+      "source": "/fiba",
+      "destination": "/sport/fiba",
+      "permanent": true
+    },
+    {
+      "source": "/wnba",
+      "destination": "/sport/wnba",
+      "permanent": true
+    },
+    {
+      "source": "/mlb",
+      "destination": "/sport/mlb",
+      "permanent": true
+    },
+    {
+      "source": "/nhl",
+      "destination": "/sport/nhl",
+      "permanent": true
+    },
+    {
+      "source": "/cfl",
+      "destination": "/sport/cfl",
+      "permanent": true
+    },
+    {
+      "source": "/cfb",
+      "destination": "/sport/cfb",
+      "permanent": true
+    },
+    {
+      "source": "/ncaab",
+      "destination": "/sport/ncaab",
+      "permanent": true
+    },
+    {
+      "source": "/ufc",
+      "destination": "/sport/ufc",
+      "permanent": true
+    },
+    {
+      "source": "/boxing",
+      "destination": "/sport/boxing",
+      "permanent": true
+    },
+    {
+      "source": "/f1",
+      "destination": "/sport/f1",
       "permanent": true
     }
   ],
