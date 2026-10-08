@@ -29,6 +29,21 @@
       "permanent": true
     },
     {
+      "source": "/blog/how-many-matches-in-a-premier-league-season-380-explained",
+      "destination": "/blog/how-many-matches-in-a-premier-league",
+      "permanent": true
+    },
+    {
+      "source": "/how-many-matches-in-a-premier-league-season-380-explained",
+      "destination": "/blog/how-many-matches-in-a-premier-league",
+      "permanent": true
+    },
+    {
+      "source": "/how-many-matches-in-a-premier-league",
+      "destination": "/blog/how-many-matches-in-a-premier-league",
+      "permanent": true
+    },
+    {
       "source": "/nfl",
       "destination": "/sport/nfl",
       "permanent": true

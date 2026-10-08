@@ -7,7 +7,7 @@
 export const blogPosts = [
   {
     id: 'blog-premier-league-matches-season-380',
-    slug: 'how-many-matches-in-a-premier-league-season-380-explained',
+    slug: 'how-many-matches-in-a-premier-league',
     metaTitle: 'How Many Matches in a Premier League Season?',
     metaDescription: 'A Premier League season has 380 matches. See why, how fixtures work, the 462 history, and kickoff times for fans in California.',
     title: 'How Many Matches Are in a Premier League Season?',
@@ -398,7 +398,12 @@ export function getFeaturedBlog() {
 }
 
 export function getBlogBySlug(slug) {
-  return blogPosts.find(b => b.slug === slug || b.slug === slug.replace(/^\/blog\//, ''));
+  const cleanSlug = slug.replace(/^\/blog\//, '');
+  return blogPosts.find(b => 
+    b.slug === cleanSlug || 
+    b.slug === slug ||
+    (cleanSlug.startsWith('how-many-matches-in-a-premier-league') && b.slug === 'how-many-matches-in-a-premier-league')
+  );
 }
 
 export function getBlogsByCategory(category) {

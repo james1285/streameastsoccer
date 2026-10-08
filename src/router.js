@@ -111,14 +111,18 @@ export function handleRoute() {
     renderBlogPage(mainContent);
   } else if (path === '/blog' || path === '/blogs') {
     renderBlogPage(mainContent);
+  } else if (path === '/blog/how-many-matches-in-a-premier-league-season-380-explained' || path === '/how-many-matches-in-a-premier-league-season-380-explained') {
+    history.replaceState(null, null, '/blog/how-many-matches-in-a-premier-league');
+    renderBlogDetailPage(mainContent, 'how-many-matches-in-a-premier-league');
   } else if (path.startsWith('/blog/')) {
     const slug = path.replace('/blog/', '');
     renderBlogDetailPage(mainContent, slug);
   } else if (path.startsWith('/blogs/')) {
     const slug = path.replace('/blogs/', '');
     renderBlogDetailPage(mainContent, slug);
-  } else if (path === '/how-many-matches-in-a-premier-league-season-380-explained') {
-    renderBlogDetailPage(mainContent, 'how-many-matches-in-a-premier-league-season-380-explained');
+  } else if (path === '/how-many-matches-in-a-premier-league') {
+    history.replaceState(null, null, '/blog/how-many-matches-in-a-premier-league');
+    renderBlogDetailPage(mainContent, 'how-many-matches-in-a-premier-league');
   } else if (path === '/how-to-watch') {
     renderHowToWatchPage(mainContent);
   } else if (path.startsWith('/match/')) {
