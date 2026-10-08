@@ -13,8 +13,6 @@ import { renderLeaguesPage } from './pages/LeaguesPage.js';
 import { renderLeagueDetailPage } from './pages/LeagueDetailPage.js';
 import { renderUSASoccerPage } from './pages/USASoccerPage.js';
 import { renderSportPage } from './pages/SportPage.js';
-import { renderNewsPage } from './pages/NewsPage.js';
-import { renderNewsDetailPage } from './pages/NewsDetailPage.js';
 import { renderHowToWatchPage } from './pages/HowToWatchPage.js';
 import { renderMatchDetailPage } from './pages/MatchDetailPage.js';
 import { renderFAQPage } from './pages/FAQPage.js';
@@ -108,11 +106,9 @@ export function handleRoute() {
   } else if (LEAGUE_SLUGS.includes(path.slice(1))) {
     const slug = path.slice(1);
     renderLeagueDetailPage(mainContent, slug);
-  } else if (path === '/news') {
-    renderNewsPage(mainContent);
-  } else if (path.startsWith('/news/')) {
-    const slug = path.replace('/news/', '');
-    renderNewsDetailPage(mainContent, slug);
+  } else if (path === '/news' || path.startsWith('/news/')) {
+    history.replaceState(null, null, '/blog');
+    renderBlogPage(mainContent);
   } else if (path === '/blog' || path === '/blogs') {
     renderBlogPage(mainContent);
   } else if (path.startsWith('/blog/')) {

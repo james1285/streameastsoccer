@@ -6,7 +6,6 @@
 import { matches } from '../data/matches.js';
 import { teams } from '../data/teams.js';
 import { leagues } from '../data/leagues.js';
-import { newsArticles } from '../data/news.js';
 import { blogPosts } from '../data/blogs.js';
 
 export function initSearchModal() {
@@ -104,12 +103,7 @@ export function initSearchModal() {
       b.slug.includes(q)
     );
 
-    // News Search
-    const matchedNews = newsArticles.filter(n => 
-      n.title.toLowerCase().includes(q) || n.category.toLowerCase().includes(q)
-    );
-
-    if (!matchedFixtures.length && !matchedLeagues.length && !matchedBlogs.length && !matchedNews.length) {
+    if (!matchedFixtures.length && !matchedLeagues.length && !matchedBlogs.length) {
       resultsContainer.innerHTML = `
         <div style="padding:2rem; text-align:center; color:var(--text-muted);">
           <p style="margin:0;">No matches or content found for "<strong>${escapeHtml(query)}</strong>"</p>
@@ -143,7 +137,7 @@ export function initSearchModal() {
     // Blogs Section
     if (matchedBlogs.length) {
       html += `<div style="padding:0.6rem 0.5rem 0.4rem; font-size:0.75rem; font-weight:700; color:var(--accent-green); text-transform:uppercase;">Soccer Guides & Blogs</div>`;
-      html += matchedBlogs.slice(0, 3).map(b => `
+      html += matchedBlogs.slice(0, 4).map(b => `
         <a href="/blog/${b.slug}" class="search-result-item" data-link>
           <div style="display:flex; flex-direction:column; gap:0.2rem;">
             <span style="color:var(--text-primary); font-weight:600; font-size:0.92rem;">${b.metaTitle || b.title}</span>
@@ -164,19 +158,6 @@ export function initSearchModal() {
             <span style="color:var(--text-primary); font-weight:600;">${l.name}</span>
           </div>
           <span style="font-size:0.8rem; color:var(--text-muted);">${l.country}</span>
-        </a>
-      `).join('');
-    }
-
-    // News Section
-    if (matchedNews.length) {
-      html += `<div style="padding:0.6rem 0.5rem 0.4rem; font-size:0.75rem; font-weight:700; color:var(--accent-green); text-transform:uppercase;">Soccer News</div>`;
-      html += matchedNews.slice(0, 3).map(n => `
-        <a href="/news/${n.slug}" class="search-result-item" data-link>
-          <div style="display:flex; flex-direction:column; gap:0.2rem;">
-            <span style="color:var(--text-primary); font-weight:500; font-size:0.9rem;">${n.title}</span>
-            <span style="font-size:0.75rem; color:var(--text-dim);">${n.category} &bull; ${n.readTime}</span>
-          </div>
         </a>
       `).join('');
     }

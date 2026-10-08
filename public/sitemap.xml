@@ -348,13 +348,7 @@
     <priority>0.75</priority>
   </url>
 
-  <!-- Editorial News & Blog Hubs -->
-  <url>
-    <loc>https://www.streameastsoccer.live/news</loc>
-    <lastmod>2026-10-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.85</priority>
-  </url>
+  <!-- Editorial Blog Hub & Guides -->
   <url>
     <loc>https://www.streameastsoccer.live/blog</loc>
     <lastmod>2026-10-08</lastmod>

@@ -31,7 +31,6 @@ export function renderFooter() {
               <li><a href="/live-scores" data-link>Live Scores</a></li>
               <li><a href="/schedule" data-link>Soccer Schedule</a></li>
               <li><a href="/leagues" data-link>All Leagues</a></li>
-              <li><a href="/news" data-link>Soccer News</a></li>
               <li><a href="/blog" data-link>Soccer Blog & Guides</a></li>
               <li><a href="/how-to-watch" data-link>How to Watch</a></li>
               <li><a href="/faq" data-link>FAQ</a></li>

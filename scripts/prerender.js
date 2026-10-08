@@ -12,7 +12,6 @@ import { fileURLToPath } from 'node:url';
 // Data imports for route enumeration
 import { leagues } from '../src/data/leagues.js';
 import { sports } from '../src/data/sports.js';
-import { newsArticles } from '../src/data/news.js';
 import { blogPosts } from '../src/data/blogs.js';
 import { matches } from '../src/data/matches.js';
 
@@ -26,8 +25,6 @@ import { renderSchedulePage } from '../src/pages/SchedulePage.js';
 import { renderLeaguesPage } from '../src/pages/LeaguesPage.js';
 import { renderLeagueDetailPage } from '../src/pages/LeagueDetailPage.js';
 import { renderSportPage } from '../src/pages/SportPage.js';
-import { renderNewsPage } from '../src/pages/NewsPage.js';
-import { renderNewsDetailPage } from '../src/pages/NewsDetailPage.js';
 import { renderBlogPage } from '../src/pages/BlogPage.js';
 import { renderBlogDetailPage } from '../src/pages/BlogDetailPage.js';
 import { renderMatchDetailPage } from '../src/pages/MatchDetailPage.js';
@@ -223,7 +220,6 @@ const routesToRender = [
   { path: '/terms', render: (c) => renderTermsPage(c) },
   { path: '/disclaimer', render: (c) => renderDisclaimerPage(c) },
   { path: '/copyright', render: (c) => renderCopyrightPage(c) },
-  { path: '/news', render: (c) => renderNewsPage(c) },
   { path: '/blog', render: (c) => renderBlogPage(c) },
   { path: '/404', render: (c) => renderNotFoundPage(c) },
 ];
@@ -241,14 +237,6 @@ sports.forEach(sport => {
   routesToRender.push({
     path: `/sport/${sport.slug}`,
     render: (c) => renderSportPage(c, sport.slug)
-  });
-});
-
-// Add news articles
-newsArticles.forEach(article => {
-  routesToRender.push({
-    path: `/news/${article.slug}`,
-    render: (c) => renderNewsDetailPage(c, article.slug)
   });
 });
 
