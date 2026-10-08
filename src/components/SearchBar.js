@@ -7,6 +7,7 @@ import { matches } from '../data/matches.js';
 import { teams } from '../data/teams.js';
 import { leagues } from '../data/leagues.js';
 import { newsArticles } from '../data/news.js';
+import { blogPosts } from '../data/blogs.js';
 
 export function initSearchModal() {
   const modalRoot = document.getElementById('search-modal-root');
@@ -24,7 +25,7 @@ export function initSearchModal() {
             type="text" 
             id="global-search-input" 
             class="search-input" 
-            placeholder="Search matches, teams, leagues, or news..." 
+            placeholder="Search matches, teams, leagues, news, or blogs..." 
             autocomplete="off"
             spellcheck="false"
           />
@@ -35,7 +36,7 @@ export function initSearchModal() {
 
         <div id="search-results" class="search-results-list" role="listbox">
           <div style="padding:1.5rem; text-align:center; color:var(--text-muted); font-size:0.9rem;">
-            Type to search live matches, upcoming fixtures, leagues, or editorial news...
+            Type to search live matches, upcoming fixtures, leagues, news, or blog guides...
           </div>
         </div>
 
@@ -69,7 +70,7 @@ export function initSearchModal() {
     if (!resultsContainer) return;
     resultsContainer.innerHTML = `
       <div style="padding:1.5rem; text-align:center; color:var(--text-muted); font-size:0.9rem;">
-        Type to search live matches, upcoming fixtures, leagues, or editorial news...
+        Type to search live matches, upcoming fixtures, leagues, news, or blog guides...
       </div>
     `;
   };
@@ -94,16 +95,25 @@ export function initSearchModal() {
       l.name.toLowerCase().includes(q) || l.country.toLowerCase().includes(q)
     );
 
+    // Blog Search
+    const matchedBlogs = blogPosts.filter(b => 
+      b.title.toLowerCase().includes(q) || 
+      (b.metaTitle && b.metaTitle.toLowerCase().includes(q)) || 
+      b.category.toLowerCase().includes(q) ||
+      (b.tags && b.tags.some(t => t.toLowerCase().includes(q))) ||
+      b.slug.includes(q)
+    );
+
     // News Search
     const matchedNews = newsArticles.filter(n => 
       n.title.toLowerCase().includes(q) || n.category.toLowerCase().includes(q)
     );
 
-    if (!matchedFixtures.length && !matchedLeagues.length && !matchedNews.length) {
+    if (!matchedFixtures.length && !matchedLeagues.length && !matchedBlogs.length && !matchedNews.length) {
       resultsContainer.innerHTML = `
         <div style="padding:2rem; text-align:center; color:var(--text-muted);">
           <p style="margin:0;">No matches or content found for "<strong>${escapeHtml(query)}</strong>"</p>
-          <span style="font-size:0.8rem; color:var(--text-dim);">Try searching for "Arsenal", "Premier League", "Champions League", or "Real Madrid"</span>
+          <span style="font-size:0.8rem; color:var(--text-dim);">Try searching for "Premier League", "380 matches", "Arsenal", or "Champions League"</span>
         </div>
       `;
       return;
@@ -128,6 +138,20 @@ export function initSearchModal() {
           </a>
         `;
       }).join('');
+    }
+
+    // Blogs Section
+    if (matchedBlogs.length) {
+      html += `<div style="padding:0.6rem 0.5rem 0.4rem; font-size:0.75rem; font-weight:700; color:var(--accent-green); text-transform:uppercase;">Soccer Guides & Blogs</div>`;
+      html += matchedBlogs.slice(0, 3).map(b => `
+        <a href="/blog/${b.slug}" class="search-result-item" data-link>
+          <div style="display:flex; flex-direction:column; gap:0.2rem;">
+            <span style="color:var(--text-primary); font-weight:600; font-size:0.92rem;">${b.metaTitle || b.title}</span>
+            <span style="font-size:0.75rem; color:var(--text-dim);">${b.category} &bull; ${b.readTime}</span>
+          </div>
+          <span class="badge badge-league" style="font-size:0.65rem; color:var(--accent-green); border-color:var(--border-green);">GUIDE</span>
+        </a>
+      `).join('');
     }
 
     // Leagues Section

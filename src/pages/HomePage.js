@@ -10,9 +10,11 @@ import { fetchRealLiveMatches, getCachedLiveMatches } from '../services/liveScor
 import { leagues, getUSALeagues } from '../data/leagues.js';
 import { sports } from '../data/sports.js';
 import { newsArticles } from '../data/news.js';
+import { blogPosts } from '../data/blogs.js';
 import { createMatchCard } from '../components/MatchCard.js';
 import { createLeagueCard } from '../components/LeagueCard.js';
 import { createNewsCard } from '../components/NewsCard.js';
+import { createBlogCard } from '../components/BlogCard.js';
 import { createFilterBar } from '../components/Filters.js';
 import { createEmptyState } from '../components/StateComponents.js';
 
@@ -187,6 +189,25 @@ export function renderHomePage(container) {
 
         <div class="grid-news">
           ${newsArticles.slice(0, 3).map(n => createNewsCard(n)).join('')}
+        </div>
+      </div>
+    </section>
+
+    <!-- Editorial Soccer Guides & Explanations Section -->
+    <section class="section-container" style="padding: 2.5rem 0;" aria-labelledby="blog-guides-heading">
+      <div class="container">
+        <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:2rem; flex-wrap:wrap; gap:1rem;">
+          <div>
+            <span class="text-green" style="font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;">Soccer Rules & Fixture Guides</span>
+            <h2 id="blog-guides-heading" style="margin-top:0.25rem;">Featured Explanations & Guides</h2>
+          </div>
+          <a href="/blog" class="btn btn-outline btn-sm" data-link>
+            Visit Soccer Blog &rarr;
+          </a>
+        </div>
+
+        <div class="grid-news">
+          ${blogPosts.map(b => createBlogCard(b)).join('')}
         </div>
       </div>
     </section>

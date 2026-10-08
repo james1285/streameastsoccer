@@ -16,6 +16,7 @@ export function renderHeader(currentPath = '/') {
     { label: 'Schedule', path: '/schedule' },
     { label: 'Leagues', path: '/leagues' },
     { label: 'News', path: '/news' },
+    { label: 'Blog', path: '/blog' },
     { label: 'How to Watch', path: '/how-to-watch' },
     { label: 'FAQ', path: '/faq' }
   ];

@@ -348,6 +348,26 @@
     <priority>0.75</priority>
   </url>
 
+  <!-- Editorial News & Blog Hubs -->
+  <url>
+    <loc>https://www.streameastsoccer.live/news</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.streameastsoccer.live/blog</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.streameastsoccer.live/blog/how-many-matches-in-a-premier-league-season-380-explained</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
   <!-- Information & How to Watch Guides -->
   <url>
     <loc>https://www.streameastsoccer.live/how-to-watch</loc>

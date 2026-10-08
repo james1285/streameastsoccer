@@ -20,6 +20,8 @@ import { renderMatchDetailPage } from './pages/MatchDetailPage.js';
 import { renderFAQPage } from './pages/FAQPage.js';
 import { renderAboutPage } from './pages/AboutPage.js';
 import { renderContactPage } from './pages/ContactPage.js';
+import { renderBlogPage } from './pages/BlogPage.js';
+import { renderBlogDetailPage } from './pages/BlogDetailPage.js';
 import { 
   renderPrivacyPage, 
   renderTermsPage, 
@@ -111,6 +113,16 @@ export function handleRoute() {
   } else if (path.startsWith('/news/')) {
     const slug = path.replace('/news/', '');
     renderNewsDetailPage(mainContent, slug);
+  } else if (path === '/blog' || path === '/blogs') {
+    renderBlogPage(mainContent);
+  } else if (path.startsWith('/blog/')) {
+    const slug = path.replace('/blog/', '');
+    renderBlogDetailPage(mainContent, slug);
+  } else if (path.startsWith('/blogs/')) {
+    const slug = path.replace('/blogs/', '');
+    renderBlogDetailPage(mainContent, slug);
+  } else if (path === '/how-many-matches-in-a-premier-league-season-380-explained') {
+    renderBlogDetailPage(mainContent, 'how-many-matches-in-a-premier-league-season-380-explained');
   } else if (path === '/how-to-watch') {
     renderHowToWatchPage(mainContent);
   } else if (path.startsWith('/match/')) {

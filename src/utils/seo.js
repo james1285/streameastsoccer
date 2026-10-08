@@ -181,3 +181,93 @@ export function generateBreadcrumbSchema(items) {
     }))
   };
 }
+
+/**
+ * Generates BlogPosting & FAQPage combined schema for blog detail pages
+ */
+export function generateBlogPostSchema(blog) {
+  const blogUrl = `${SITE_URL}/blog/${blog.slug}`;
+  const graph = [
+    {
+      '@type': 'BlogPosting',
+      '@id': `${blogUrl}#article`,
+      'isPartOf': {
+        '@type': 'Blog',
+        '@id': `${SITE_URL}/blog#blog`,
+        'name': 'StreamEast Soccer Blog',
+        'url': `${SITE_URL}/blog`
+      },
+      'headline': blog.metaTitle || blog.title,
+      'name': blog.title,
+      'description': blog.metaDescription || blog.excerpt,
+      'image': blog.image ? `${SITE_URL}${blog.image}` : `${SITE_URL}/images/og-streameast-soccer.png`,
+      'datePublished': `${blog.publishDate}T08:00:00Z`,
+      'dateModified': `${blog.publishDate}T08:00:00Z`,
+      'mainEntityOfPage': blogUrl,
+      'url': blogUrl,
+      'author': {
+        '@type': 'Organization',
+        'name': blog.author || 'StreamEast Soccer Editorial',
+        'url': `${SITE_URL}/`
+      },
+      'publisher': {
+        '@type': 'Organization',
+        'name': 'StreamEast Soccer',
+        'url': `${SITE_URL}/`,
+        'logo': {
+          '@type': 'ImageObject',
+          'url': `${SITE_URL}/images/og-streameast-soccer.png`
+        }
+      },
+      'articleSection': blog.category || 'Soccer Guides',
+      'inLanguage': 'en-US'
+    }
+  ];
+
+  if (blog.faqs && blog.faqs.length > 0) {
+    graph.push({
+      '@type': 'FAQPage',
+      '@id': `${blogUrl}#faq`,
+      'mainEntity': blog.faqs.map(faq => ({
+        '@type': 'Question',
+        'name': faq.question,
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': faq.answer
+        }
+      }))
+    });
+  }
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': graph
+  };
+}
+
+/**
+ * Generates Blog collection schema for blog index page
+ */
+export function generateBlogIndexSchema(blogs) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    '@id': `${SITE_URL}/blog#blog`,
+    'name': 'StreamEast Soccer Blog & Football Guides',
+    'url': `${SITE_URL}/blog`,
+    'description': 'In-depth football guides, Premier League fixture explainers, match rules, broadcast schedules, and soccer tactical insights.',
+    'publisher': {
+      '@type': 'Organization',
+      'name': 'StreamEast Soccer',
+      'url': `${SITE_URL}/`
+    },
+    'blogPost': blogs.map(b => ({
+      '@type': 'BlogPosting',
+      'headline': b.metaTitle || b.title,
+      'url': `${SITE_URL}/blog/${b.slug}`,
+      'datePublished': `${b.publishDate}T08:00:00Z`,
+      'description': b.metaDescription || b.excerpt
+    }))
+  };
+}
+
