@@ -1,7 +1,7 @@
 /**
  * StreamEast Soccer - Blog Detail Page (/blog/:slug)
  * Renders complete editorial blog posts, formatted tables, FAQ accordion,
- * comment discussion section, and valid BlogPosting + FAQPage JSON-LD structured schemas.
+ * author bio/links, and valid BlogPosting + FAQPage JSON-LD structured schemas.
  */
 
 import { updateSEO, generateBlogPostSchema, generateBreadcrumbSchema, getCanonicalUrl } from '../utils/seo.js';
@@ -53,21 +53,6 @@ export function renderBlogDetailPage(container, slug) {
   const tocItems = blog.toc && blog.toc.length > 0 ? blog.toc : [
     { id: 'faq', label: 'Frequently Asked Questions' },
     { id: 'final-thoughts', label: 'Final Thoughts' }
-  ];
-
-  const commentsList = blog.comments && blog.comments.length > 0 ? blog.comments : [
-    {
-      author: 'Soccer Fan',
-      stance: 'Discussion',
-      date: 'October 2026',
-      body: 'Excellent guide! Really helpful breakdown of the Premier League details.'
-    }
-  ];
-
-  const discussionOptions = blog.discussionOptions && blog.discussionOptions.length > 0 ? blog.discussionOptions : [
-    'General Discussion',
-    'Tactical Opinion',
-    'Prediction'
   ];
 
   container.innerHTML = `
@@ -146,65 +131,6 @@ export function renderBlogDetailPage(container, slug) {
             ${blog.contentHtml}
           </div>
 
-          <!-- Interactive Comments & Discussion Section -->
-          <section id="comments-section" class="blog-comments-container" style="margin-top:4rem; padding-top:2.5rem; border-top:1px solid var(--border-subtle);">
-            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1.5rem; flex-wrap:wrap; gap:1rem;">
-              <h3 style="font-size:1.4rem; margin:0; display:flex; align-items:center; gap:0.5rem;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                Reader Discussion & Comments (<span id="comments-count">${commentsList.length}</span>)
-              </h3>
-              <span style="font-size:0.85rem; color:var(--accent-green); font-weight:600;">Join the debate</span>
-            </div>
-
-            <div class="card" style="background:var(--bg-surface); padding:1.5rem; margin-bottom:2rem;">
-              <p style="font-weight:600; color:var(--text-primary); margin-bottom:1rem;">
-                ${blog.discussionPrompt || '💬 Share your thoughts and join the discussion below.'}
-              </p>
-
-              <form id="blog-comment-form">
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
-                  <div class="form-group" style="margin-bottom:0;">
-                    <label for="comment-author" class="form-label" style="font-size:0.85rem;">Your Name / Username</label>
-                    <input type="text" id="comment-author" class="form-control" placeholder="e.g. Alex (Premier League Fan)" required />
-                  </div>
-                  <div class="form-group" style="margin-bottom:0;">
-                    <label for="comment-stance" class="form-label" style="font-size:0.85rem;">Your Pick / Stance</label>
-                    <select id="comment-stance" class="form-control">
-                      ${discussionOptions.map(opt => `<option value="${opt}">${opt}</option>`).join('')}
-                    </select>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="comment-body" class="form-label" style="font-size:0.85rem;">Your Comment</label>
-                  <textarea id="comment-body" class="form-control" rows="3" placeholder="Share your perspective, favourite captain, or tactical thoughts..." required></textarea>
-                </div>
-
-                <button type="submit" class="btn btn-primary btn-sm">
-                  Post Comment
-                </button>
-              </form>
-            </div>
-
-            <!-- Comments List -->
-            <div id="blog-comments-list" style="display:flex; flex-direction:column; gap:1rem;">
-              ${commentsList.map(c => `
-                <div class="card" style="padding:1.25rem; background:var(--bg-card);">
-                  <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.5rem;">
-                    <div style="display:flex; align-items:center; gap:0.5rem;">
-                      <span style="font-weight:700; color:var(--text-primary); font-size:0.95rem;">${escapeHtml(c.author)}</span>
-                      <span class="badge badge-league" style="font-size:0.65rem; padding:0.1rem 0.4rem;">${escapeHtml(c.stance)}</span>
-                    </div>
-                    <span style="font-size:0.75rem; color:var(--text-dim);">${escapeHtml(c.date)}</span>
-                  </div>
-                  <p style="margin:0; font-size:0.92rem; color:var(--text-secondary); line-height:1.5;">
-                    ${escapeHtml(c.body)}
-                  </p>
-                </div>
-              `).join('')}
-            </div>
-          </section>
-
           <!-- Author Bio & Editorial Note -->
           <div class="card" style="margin-top:3.5rem; background:var(--bg-surface); padding:1.75rem; border-color:var(--border-subtle);">
             <h4 style="margin:0 0 0.5rem; font-size:1.1rem; color:var(--text-primary);">About StreamEast Soccer Guides</h4>
@@ -235,9 +161,6 @@ export function renderBlogDetailPage(container, slug) {
   // Attach Accordion behavior to FAQ items
   initBlogAccordions(container);
 
-  // Attach Comment form submission handler
-  initCommentForm(container);
-
   // Attach Share button handler
   initShareButton(container);
 }
@@ -258,49 +181,6 @@ function initBlogAccordions(container) {
         header.setAttribute('aria-expanded', 'true');
       }
     });
-  });
-}
-
-function initCommentForm(container) {
-  const form = container.querySelector('#blog-comment-form');
-  const list = container.querySelector('#blog-comments-list');
-  const countSpan = container.querySelector('#comments-count');
-
-  form?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const author = container.querySelector('#comment-author')?.value.trim();
-    const stance = container.querySelector('#comment-stance')?.value;
-    const body = container.querySelector('#comment-body')?.value.trim();
-
-    if (!author || !body) return;
-
-    const newCommentEl = document.createElement('div');
-    newCommentEl.className = 'card';
-    newCommentEl.style.cssText = 'padding:1.25rem; background:var(--bg-card); border-color:var(--border-green);';
-    newCommentEl.innerHTML = `
-      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.5rem;">
-        <div style="display:flex; align-items:center; gap:0.5rem;">
-          <span style="font-weight:700; color:var(--text-primary); font-size:0.95rem;">${escapeHtml(author)}</span>
-          <span class="badge badge-league" style="font-size:0.65rem; padding:0.1rem 0.4rem; color:var(--accent-green); border-color:var(--border-green);">${escapeHtml(stance)}</span>
-        </div>
-        <span style="font-size:0.75rem; color:var(--accent-green);">Just now</span>
-      </div>
-      <p style="margin:0; font-size:0.92rem; color:var(--text-secondary); line-height:1.5;">
-        ${escapeHtml(body)}
-      </p>
-    `;
-
-    list?.insertBefore(newCommentEl, list.firstChild);
-    form.reset();
-
-    // Update count
-    if (countSpan) {
-      const current = parseInt(countSpan.textContent, 10) || 0;
-      countSpan.textContent = String(current + 1);
-    }
-
-    // Show toast confirmation
-    showToast('Thank you! Your comment has been posted to the discussion.');
   });
 }
 
@@ -335,10 +215,4 @@ function showToast(message) {
   setTimeout(() => {
     toast.remove();
   }, 3500);
-}
-
-function escapeHtml(str) {
-  return str.replace(/[&<>'"]/g, 
-    tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
-  );
 }

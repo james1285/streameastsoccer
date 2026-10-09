@@ -35,26 +35,6 @@ export const blogPosts = [
       { id: 'faq', label: 'Frequently Asked Questions' },
       { id: 'final-thoughts', label: 'Final Thoughts' }
     ],
-    discussionPrompt: '💬 "Would you keep 20 clubs, or would you cut the league to 18 for a lighter calendar? Share your take in the comments."',
-    discussionOptions: [
-      'Keep 20 clubs (380 matches)',
-      'Reduce to 18 clubs (306 matches)',
-      'Keep 20 but adjust domestic cups'
-    ],
-    comments: [
-      {
-        author: 'Liam Davies',
-        stance: 'Keep 20 Clubs',
-        date: 'October 8, 2026',
-        body: 'The 38-match format is what makes the Premier League so prestigious. Over 38 weeks, luck gets eliminated and only the most consistent squad lifts the trophy. Cutting to 18 would hurt mid-table clubs and reduce TV revenue drastically.'
-      },
-      {
-        author: 'Carlos M. (San Diego, CA)',
-        stance: 'Keep 20 but adjust cups',
-        date: 'October 8, 2026',
-        body: 'Waking up at 7am on Saturdays here in California is our weekend ritual. Don\'t touch the 380 games! If player fatigue is a concern, they should simplify the League Cup or remove two-legged cup ties instead.'
-      }
-    ],
     faqs: [
       {
         question: 'How many matches are in a Premier League season?',
@@ -448,31 +428,6 @@ export const blogPosts = [
       { id: 'captain-injured-or-leaves', label: 'What Happens If a Captain Gets Injured or Leaves?' },
       { id: 'faq', label: 'Frequently Asked Questions' },
       { id: 'final-thoughts', label: 'Final Thoughts' }
-    ],
-    discussionPrompt: '💬 "Which captain do you rate highest, and which club picked the wrong one? Drop your answer in the comments."',
-    discussionOptions: [
-      'Dan Burn (Newcastle United)',
-      'Virgil van Dijk (Liverpool)',
-      'Martin Odegaard (Arsenal)',
-      'Bruno Fernandes (Manchester United)',
-      'Ruben Dias (Manchester City)',
-      'Micky van de Ven (Tottenham)',
-      'James Tarkowski (Everton)',
-      'Other / Share in comment'
-    ],
-    comments: [
-      {
-        author: 'Geordie Pete',
-        stance: 'Dan Burn (Newcastle United)',
-        date: 'October 9, 2026',
-        body: 'Dan Burn getting the armband after being released as an 11-year-old is what football is all about. True leader who understands the shirt and the city.'
-      },
-      {
-        author: 'Marcus Vance (London)',
-        stance: 'Micky van de Ven (Tottenham)',
-        date: 'October 9, 2026',
-        body: 'Micky van de Ven stepping up after Romero moved to Atletico shows his immense maturity. Easily one of the most commanding centre-backs in the league.'
-      }
     ],
     faqs: [
       {
