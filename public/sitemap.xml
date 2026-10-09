@@ -351,13 +351,19 @@
   <!-- Editorial Blog Hub & Guides -->
   <url>
     <loc>https://www.streameastsoccer.live/blog</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.streameastsoccer.live/blog/how-many-matches-in-a-premier-league</loc>
     <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.streameastsoccer.live/blog/who-is-the-captain-of-every-premier-league-team</loc>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>

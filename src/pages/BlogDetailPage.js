@@ -50,6 +50,26 @@ export function renderBlogDetailPage(container, slug) {
 
   const otherBlogs = getAllBlogs().filter(b => b.id !== blog.id);
 
+  const tocItems = blog.toc && blog.toc.length > 0 ? blog.toc : [
+    { id: 'faq', label: 'Frequently Asked Questions' },
+    { id: 'final-thoughts', label: 'Final Thoughts' }
+  ];
+
+  const commentsList = blog.comments && blog.comments.length > 0 ? blog.comments : [
+    {
+      author: 'Soccer Fan',
+      stance: 'Discussion',
+      date: 'October 2026',
+      body: 'Excellent guide! Really helpful breakdown of the Premier League details.'
+    }
+  ];
+
+  const discussionOptions = blog.discussionOptions && blog.discussionOptions.length > 0 ? blog.discussionOptions : [
+    'General Discussion',
+    'Tactical Opinion',
+    'Prediction'
+  ];
+
   container.innerHTML = `
     <div class="container" style="padding-top:2rem;">
       ${breadcrumbsHtml}
@@ -89,7 +109,7 @@ export function renderBlogDetailPage(container, slug) {
             ${blog.image ? `
               <img 
                 src="${blog.image}" 
-                alt="${blog.title} - 20 Clubs, 38 Matches per Club, 380 Matches in Total" 
+                alt="${blog.title}" 
                 style="width:100%; height:auto; max-height:480px; object-fit:cover; display:block;" 
                 loading="eager"
                 width="1280"
@@ -101,8 +121,8 @@ export function renderBlogDetailPage(container, slug) {
                 <circle cx="440" cy="180" r="160" stroke="#00e676" stroke-width="1.5" stroke-dasharray="8 8" opacity="0.25"/>
                 <circle cx="440" cy="180" r="110" stroke="#00e676" stroke-width="2" opacity="0.4"/>
                 <rect x="340" y="90" width="200" height="180" rx="12" fill="#151d2a" stroke="#00e676" stroke-width="2"/>
-                <text x="440" y="170" fill="#00e676" font-family="'Outfit', sans-serif" font-weight="900" font-size="52" text-anchor="middle">380</text>
-                <text x="440" y="210" fill="#f8fafc" font-family="'Outfit', sans-serif" font-weight="700" font-size="16" text-anchor="middle">PREMIER LEAGUE FIXTURES</text>
+                <text x="440" y="170" fill="#00e676" font-family="'Outfit', sans-serif" font-weight="900" font-size="52" text-anchor="middle">PREMIER LEAGUE</text>
+                <text x="440" y="210" fill="#f8fafc" font-family="'Outfit', sans-serif" font-weight="700" font-size="16" text-anchor="middle">SOCCER GUIDE</text>
                 <circle cx="440" cy="240" r="5" fill="#00e676"/>
               </svg>
             `}
@@ -117,20 +137,7 @@ export function renderBlogDetailPage(container, slug) {
               </span>
             </div>
             <ul class="blog-toc-list">
-              <li><a href="#how-many-matches">How Many Matches Are in a Premier League Season?</a></li>
-              <li><a href="#why-38-games">Why Does Each Club Play 38 Games?</a></li>
-              <li><a href="#total-breakdown">How Is the 380 Total Broken Down?</a></li>
-              <li><a href="#history-462">Why Did the Premier League Once Have 462 Matches?</a></li>
-              <li><a href="#fixtures-decided">How Are Premier League Fixtures Decided?</a></li>
-              <li><a href="#real-workload">How Many Matches Does a Club Really Play in a Season?</a></li>
-              <li><a href="#postponed-matches">What Happens When Matches Are Postponed?</a></li>
-              <li><a href="#comparison-leagues">How Does 380 Compare With Other Leagues?</a></li>
-              <li><a href="#title-relegation">How Do 38 Games Shape the Title Race and Relegation?</a></li>
-              <li><a href="#california-kickoff">What Time Do Premier League Matches Start in California?</a></li>
-              <li><a href="#usa-channels">Which Channels Show Premier League Games in the USA?</a></li>
-              <li><a href="#future-changes">Could the Premier League Change the Number of Matches?</a></li>
-              <li><a href="#faq">Frequently Asked Questions</a></li>
-              <li><a href="#final-thoughts">Final Thoughts</a></li>
+              ${tocItems.map(item => `<li><a href="#${item.id}">${item.label}</a></li>`).join('')}
             </ul>
           </nav>
 
@@ -144,35 +151,33 @@ export function renderBlogDetailPage(container, slug) {
             <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1.5rem; flex-wrap:wrap; gap:1rem;">
               <h3 style="font-size:1.4rem; margin:0; display:flex; align-items:center; gap:0.5rem;">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                Reader Discussion & Comments (<span id="comments-count">2</span>)
+                Reader Discussion & Comments (<span id="comments-count">${commentsList.length}</span>)
               </h3>
               <span style="font-size:0.85rem; color:var(--accent-green); font-weight:600;">Join the debate</span>
             </div>
 
             <div class="card" style="background:var(--bg-surface); padding:1.5rem; margin-bottom:2rem;">
               <p style="font-weight:600; color:var(--text-primary); margin-bottom:1rem;">
-                💬 "Would you keep 20 clubs, or would you cut the league to 18 for a lighter calendar? Share your take in the comments."
+                ${blog.discussionPrompt || '💬 Share your thoughts and join the discussion below.'}
               </p>
 
               <form id="blog-comment-form">
                 <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
                   <div class="form-group" style="margin-bottom:0;">
                     <label for="comment-author" class="form-label" style="font-size:0.85rem;">Your Name / Username</label>
-                    <input type="text" id="comment-author" class="form-control" placeholder="e.g. Alex (Arsenal Fan)" required />
+                    <input type="text" id="comment-author" class="form-control" placeholder="e.g. Alex (Premier League Fan)" required />
                   </div>
                   <div class="form-group" style="margin-bottom:0;">
-                    <label for="comment-stance" class="form-label" style="font-size:0.85rem;">Your Stance</label>
+                    <label for="comment-stance" class="form-label" style="font-size:0.85rem;">Your Pick / Stance</label>
                     <select id="comment-stance" class="form-control">
-                      <option value="Keep 20 clubs (380 matches)">Keep 20 clubs (380 matches)</option>
-                      <option value="Reduce to 18 clubs (306 matches)">Reduce to 18 clubs (306 matches)</option>
-                      <option value="Keep 20 but adjust domestic cups">Keep 20 but adjust domestic cups</option>
+                      ${discussionOptions.map(opt => `<option value="${opt}">${opt}</option>`).join('')}
                     </select>
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label for="comment-body" class="form-label" style="font-size:0.85rem;">Your Comment</label>
-                  <textarea id="comment-body" class="form-control" rows="3" placeholder="Share your perspective on the 38-game calendar, player fatigue, or fixture congestion..." required></textarea>
+                  <textarea id="comment-body" class="form-control" rows="3" placeholder="Share your perspective, favourite captain, or tactical thoughts..." required></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-sm">
@@ -183,32 +188,20 @@ export function renderBlogDetailPage(container, slug) {
 
             <!-- Comments List -->
             <div id="blog-comments-list" style="display:flex; flex-direction:column; gap:1rem;">
-              <!-- Default Comments -->
-              <div class="card" style="padding:1.25rem; background:var(--bg-card);">
-                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.5rem;">
-                  <div style="display:flex; align-items:center; gap:0.5rem;">
-                    <span style="font-weight:700; color:var(--text-primary); font-size:0.95rem;">Liam Davies</span>
-                    <span class="badge badge-league" style="font-size:0.65rem; padding:0.1rem 0.4rem;">Keep 20 Clubs</span>
+              ${commentsList.map(c => `
+                <div class="card" style="padding:1.25rem; background:var(--bg-card);">
+                  <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.5rem;">
+                    <div style="display:flex; align-items:center; gap:0.5rem;">
+                      <span style="font-weight:700; color:var(--text-primary); font-size:0.95rem;">${escapeHtml(c.author)}</span>
+                      <span class="badge badge-league" style="font-size:0.65rem; padding:0.1rem 0.4rem;">${escapeHtml(c.stance)}</span>
+                    </div>
+                    <span style="font-size:0.75rem; color:var(--text-dim);">${escapeHtml(c.date)}</span>
                   </div>
-                  <span style="font-size:0.75rem; color:var(--text-dim);">October 8, 2026</span>
+                  <p style="margin:0; font-size:0.92rem; color:var(--text-secondary); line-height:1.5;">
+                    ${escapeHtml(c.body)}
+                  </p>
                 </div>
-                <p style="margin:0; font-size:0.92rem; color:var(--text-secondary); line-height:1.5;">
-                  The 38-match format is what makes the Premier League so prestigious. Over 38 weeks, luck gets eliminated and only the most consistent squad lifts the trophy. Cutting to 18 would hurt mid-table clubs and reduce TV revenue drastically.
-                </p>
-              </div>
-
-              <div class="card" style="padding:1.25rem; background:var(--bg-card);">
-                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.5rem;">
-                  <div style="display:flex; align-items:center; gap:0.5rem;">
-                    <span style="font-weight:700; color:var(--text-primary); font-size:0.95rem;">Carlos M. (San Diego, CA)</span>
-                    <span class="badge badge-league" style="font-size:0.65rem; padding:0.1rem 0.4rem;">Keep 20 but adjust cups</span>
-                  </div>
-                  <span style="font-size:0.75rem; color:var(--text-dim);">October 8, 2026</span>
-                </div>
-                <p style="margin:0; font-size:0.92rem; color:var(--text-secondary); line-height:1.5;">
-                  Waking up at 7am on Saturdays here in California is our weekend ritual. Don't touch the 380 games! If player fatigue is a concern, they should simplify the League Cup or remove two-legged cup ties instead.
-                </p>
-              </div>
+              `).join('')}
             </div>
           </section>
 
@@ -302,7 +295,7 @@ function initCommentForm(container) {
 
     // Update count
     if (countSpan) {
-      const current = parseInt(countSpan.textContent, 10) || 2;
+      const current = parseInt(countSpan.textContent, 10) || 0;
       countSpan.textContent = String(current + 1);
     }
 

@@ -19,6 +19,42 @@ export const blogPosts = [
     featured: true,
     excerpt: 'A Premier League season has 380 matches. Twenty clubs play 38 games each. Every club meets every rival twice, once at home and once away. Discover the math, history, and fixture breakdowns.',
     tags: ['Premier League', '380 Matches', 'Fixture Rules', 'EPL Schedule', 'Kickoff Times'],
+    toc: [
+      { id: 'how-many-matches', label: 'How Many Matches Are in a Premier League Season?' },
+      { id: 'why-38-games', label: 'Why Does Each Club Play 38 Games?' },
+      { id: 'total-breakdown', label: 'How Is the 380 Total Broken Down?' },
+      { id: 'history-462', label: 'Why Did the Premier League Once Have 462 Matches?' },
+      { id: 'fixtures-decided', label: 'How Are Premier League Fixtures Decided?' },
+      { id: 'real-workload', label: 'How Many Matches Does a Club Really Play in a Season?' },
+      { id: 'postponed-matches', label: 'What Happens When Matches Are Postponed?' },
+      { id: 'comparison-leagues', label: 'How Does 380 Compare With Other Leagues?' },
+      { id: 'title-relegation', label: 'How Do 38 Games Shape the Title Race and Relegation?' },
+      { id: 'california-kickoff', label: 'What Time Do Premier League Matches Start in California?' },
+      { id: 'usa-channels', label: 'Which Channels Show Premier League Games in the USA?' },
+      { id: 'future-changes', label: 'Could the Premier League Change the Number of Matches?' },
+      { id: 'faq', label: 'Frequently Asked Questions' },
+      { id: 'final-thoughts', label: 'Final Thoughts' }
+    ],
+    discussionPrompt: '💬 "Would you keep 20 clubs, or would you cut the league to 18 for a lighter calendar? Share your take in the comments."',
+    discussionOptions: [
+      'Keep 20 clubs (380 matches)',
+      'Reduce to 18 clubs (306 matches)',
+      'Keep 20 but adjust domestic cups'
+    ],
+    comments: [
+      {
+        author: 'Liam Davies',
+        stance: 'Keep 20 Clubs',
+        date: 'October 8, 2026',
+        body: 'The 38-match format is what makes the Premier League so prestigious. Over 38 weeks, luck gets eliminated and only the most consistent squad lifts the trophy. Cutting to 18 would hurt mid-table clubs and reduce TV revenue drastically.'
+      },
+      {
+        author: 'Carlos M. (San Diego, CA)',
+        stance: 'Keep 20 but adjust cups',
+        date: 'October 8, 2026',
+        body: 'Waking up at 7am on Saturdays here in California is our weekend ritual. Don\'t touch the 380 games! If player fatigue is a concern, they should simplify the League Cup or remove two-legged cup ties instead.'
+      }
+    ],
     faqs: [
       {
         question: 'How many matches are in a Premier League season?',
@@ -386,6 +422,391 @@ export const blogPosts = [
       <p>My advice is simple. Use the 380 number as your base, then add cups and Europe to understand a club's real workload. That one habit makes every title race and relegation fight easier to read. Official facts are always on<a href="https://www.premierleague.com" target="_blank" rel="noopener noreferrer">premierleague.com</a>.</p>
       <p>Now I am curious. Would you keep 20 clubs, or would you cut the league to 18 for a lighter calendar? Share your take in the comments.</p>
     `
+  },
+  {
+    id: 'blog-premier-league-captains-2026-27',
+    slug: 'who-is-the-captain-of-every-premier-league-team',
+    metaTitle: 'Who Is the Captain of Every Premier League Team? (2026/27 Updated)',
+    metaDescription: 'Full list of all 20 Premier League captains for the 2026/27 season, including changes at Newcastle, Spurs, Everton, Man City\'s 4-man group, and key stats.',
+    title: 'Who Is the Captain of Every Premier League Team? (2026/27 Updated)',
+    image: '/images/who-is-the-captain-of-every-premier-league-team.jpg',
+    category: 'Premier League Guide',
+    author: 'StreamEast Soccer Editorial',
+    publishDate: '2026-10-09',
+    readTime: '6 min read',
+    featured: false,
+    excerpt: 'Your group chat is arguing again. All 20 Premier League clubs have named their captains for 2026/27. Explore the full 20-team captain table, leadership stories, and tactical trends.',
+    tags: ['Premier League', 'Club Captains', '2026/27 Season', 'EPL Leaders', 'Football Captains'],
+    toc: [
+      { id: 'who-is-captain-2026-27', label: 'Who Is the Captain of Every Premier League Team in 2026/27?' },
+      { id: 'what-does-captain-do', label: 'What Does a Premier League Captain Actually Do?' },
+      { id: 'new-captains-this-season', label: 'Which Premier League Clubs Have a New Captain This Season?' },
+      { id: 'man-city-four-captains', label: 'Why Does Manchester City Have Four Captains?' },
+      { id: 'best-captain-stories', label: 'Which Captains Have the Best Stories?' },
+      { id: 'mostly-defenders', label: 'Are Premier League Captains Mostly Defenders?' },
+      { id: 'manager-changes', label: 'Do Captains Keep the Armband When the Manager Changes?' },
+      { id: 'captain-injured-or-leaves', label: 'What Happens If a Captain Gets Injured or Leaves?' },
+      { id: 'faq', label: 'Frequently Asked Questions' },
+      { id: 'final-thoughts', label: 'Final Thoughts' }
+    ],
+    discussionPrompt: '💬 "Which captain do you rate highest, and which club picked the wrong one? Drop your answer in the comments."',
+    discussionOptions: [
+      'Dan Burn (Newcastle United)',
+      'Virgil van Dijk (Liverpool)',
+      'Martin Odegaard (Arsenal)',
+      'Bruno Fernandes (Manchester United)',
+      'Ruben Dias (Manchester City)',
+      'Micky van de Ven (Tottenham)',
+      'James Tarkowski (Everton)',
+      'Other / Share in comment'
+    ],
+    comments: [
+      {
+        author: 'Geordie Pete',
+        stance: 'Dan Burn (Newcastle United)',
+        date: 'October 9, 2026',
+        body: 'Dan Burn getting the armband after being released as an 11-year-old is what football is all about. True leader who understands the shirt and the city.'
+      },
+      {
+        author: 'Marcus Vance (London)',
+        stance: 'Micky van de Ven (Tottenham)',
+        date: 'October 9, 2026',
+        body: 'Micky van de Ven stepping up after Romero moved to Atletico shows his immense maturity. Easily one of the most commanding centre-backs in the league.'
+      }
+    ],
+    faqs: [
+      {
+        question: 'Who is the youngest Premier League captain?',
+        answer: 'Nathan Collins of Brentford. He is 25.'
+      },
+      {
+        question: 'Who is the Arsenal captain in 2026/27?',
+        answer: 'Martin Odegaard leads Arsenal.'
+      },
+      {
+        question: 'Who captains Manchester United?',
+        answer: 'Bruno Fernandes holds the armband at Old Trafford.'
+      },
+      {
+        question: 'Who captains Liverpool?',
+        answer: 'Virgil van Dijk. He took over from Jordan Henderson in 2023.'
+      },
+      {
+        question: 'Who is the Chelsea captain?',
+        answer: 'Reece James leads Chelsea this season.'
+      },
+      {
+        question: 'Who replaced Seamus Coleman as Everton captain?',
+        answer: 'James Tarkowski. Coleman retired after 17 years at the club.'
+      },
+      {
+        question: 'Who is the Manchester City captain?',
+        answer: 'Ruben Dias is the primary captain. Haaland, Guehi and Donnarumma share leadership duties with him.'
+      },
+      {
+        question: 'Can a goalkeeper be a Premier League captain?',
+        answer: 'Yes. Dean Henderson captains Crystal Palace this season.'
+      },
+      {
+        question: 'How many matches does each Premier League captain play in a season?',
+        answer: 'A full season has 38 league games per club, so a captain who stays fit can lead the team up to 38 times. Read how many matches are in a Premier League season for the full breakdown: how many matches are in a Premier League season.'
+      },
+      {
+        question: 'How often do captains change?',
+        answer: 'Often. Some clubs change every season or two. Others keep one player for a decade.'
+      }
+    ],
+    contentHtml: `
+      <p>Your group chat is arguing again. One friend says Bruno Guimaraes still wears the armband at Newcastle. Another swears Cristian Romero leads Tottenham. Both are out of date.</p>
+      <p>Newcastle gave the armband to Dan Burn after Guimaraes left. Romero moved to Atletico Madrid in 2026, which opened the door for Micky van de Ven at Spurs.<a href="https://www.premierleague.com/en/news/4706912/premier-league-club-captains-for-202627-season/" target="_blank" rel="noopener noreferrer">premierleague</a><a href="https://topclubten.com/blog/club-captains-premier-league" target="_blank" rel="noopener noreferrer">topclubten</a></p>
+      <p>Here’s the thing. This summer reshuffled more armbands than most fans realise. Everton, Newcastle, Tottenham and Manchester City all changed their leadership picture. That is why so many people search for the captain of every Premier League team. An old list makes you look silly in front of your friends.</p>
+      <p>I wrote this guide to fix that. You will get all 20 captains, the stories behind the new ones, and a few opinions you may not like. Let’s start with the list.</p>
+
+      <div class="blog-quick-summary-card">
+        <h3 style="color:var(--accent-green); margin-top:0; font-size:1.15rem; display:flex; align-items:center; gap:0.5rem;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
+          Quick Summary
+        </h3>
+        <p style="margin-bottom:0;">You will find the full 2026/27 captains list in one table. You will also learn which clubs have new leaders, why Manchester City use four captains, and why no striker holds a main armband. The guide skips player ratings and match predictions. It answers one question properly.</p>
+      </div>
+
+      <h2 id="who-is-captain-2026-27">Who Is the Captain of Every Premier League Team in 2026/27?</h2>
+      <p>All 20 Premier League clubs have named a captain for 2026/27. Martin Odegaard leads Arsenal, Virgil van Dijk leads Liverpool, and Bruno Fernandes leads Manchester United. Manchester City use Ruben Dias as main captain inside a four player group. The table below follows the Premier League’s own announcement from late August 2026.</p>
+      <p>The Premier League confirmed the full set of 20 captains for the 2026/27 campaign. Here they are, with each player’s main position.<a href="https://khelnow.com/football/premier-league-2026-27-all-captains-202608" target="_blank" rel="noopener noreferrer">khelnow</a></p>
+
+      <div class="blog-table-container">
+        <table class="blog-table">
+          <thead>
+            <tr>
+              <th scope="col">Club</th>
+              <th scope="col">Captain</th>
+              <th scope="col">Position</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Arsenal</strong></td>
+              <td>Martin Odegaard</td>
+              <td>Midfielder</td>
+            </tr>
+            <tr>
+              <td><strong>Aston Villa</strong></td>
+              <td>John McGinn</td>
+              <td>Midfielder</td>
+            </tr>
+            <tr>
+              <td><strong>Bournemouth</strong></td>
+              <td>Adam Smith</td>
+              <td>Right back</td>
+            </tr>
+            <tr>
+              <td><strong>Brentford</strong></td>
+              <td>Nathan Collins</td>
+              <td>Centre back</td>
+            </tr>
+            <tr>
+              <td><strong>Brighton</strong></td>
+              <td>Lewis Dunk</td>
+              <td>Centre back</td>
+            </tr>
+            <tr>
+              <td><strong>Chelsea</strong></td>
+              <td>Reece James</td>
+              <td>Right back</td>
+            </tr>
+            <tr>
+              <td><strong>Coventry City</strong></td>
+              <td>Matt Grimes</td>
+              <td>Midfielder</td>
+            </tr>
+            <tr>
+              <td><strong>Crystal Palace</strong></td>
+              <td>Dean Henderson</td>
+              <td>Goalkeeper</td>
+            </tr>
+            <tr>
+              <td><strong>Everton</strong></td>
+              <td>James Tarkowski</td>
+              <td>Centre back</td>
+            </tr>
+            <tr>
+              <td><strong>Fulham</strong></td>
+              <td>Tom Cairney</td>
+              <td>Midfielder</td>
+            </tr>
+            <tr>
+              <td><strong>Hull City</strong></td>
+              <td>Lewie Coyle</td>
+              <td>Defender</td>
+            </tr>
+            <tr>
+              <td><strong>Ipswich Town</strong></td>
+              <td>Dara O’Shea</td>
+              <td>Centre back</td>
+            </tr>
+            <tr>
+              <td><strong>Leeds United</strong></td>
+              <td>Ethan Ampadu</td>
+              <td>Midfielder/defender</td>
+            </tr>
+            <tr>
+              <td><strong>Liverpool</strong></td>
+              <td>Virgil van Dijk</td>
+              <td>Centre back</td>
+            </tr>
+            <tr>
+              <td><strong>Manchester City</strong></td>
+              <td>Ruben Dias</td>
+              <td>Centre back</td>
+            </tr>
+            <tr>
+              <td><strong>Manchester United</strong></td>
+              <td>Bruno Fernandes</td>
+              <td>Midfielder</td>
+            </tr>
+            <tr>
+              <td><strong>Newcastle United</strong></td>
+              <td>Dan Burn</td>
+              <td>Defender</td>
+            </tr>
+            <tr>
+              <td><strong>Nottingham Forest</strong></td>
+              <td>Ryan Yates</td>
+              <td>Midfielder</td>
+            </tr>
+            <tr>
+              <td><strong>Sunderland</strong></td>
+              <td>Granit Xhaka</td>
+              <td>Midfielder</td>
+            </tr>
+            <tr>
+              <td><strong>Tottenham</strong></td>
+              <td>Micky van de Ven</td>
+              <td>Centre back</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Treat this table as a snapshot. Injuries, transfers and manager decisions can change it. For the latest version, check the<a href="https://www.premierleague.com/en/news/4706912/premier-league-club-captains-for-202627-season/" target="_blank" rel="noopener noreferrer">Premier League’s official captains article</a>. To see when these captains play next, open our<a href="https://www.streameastsoccer.live/premier-league">Premier League fixtures and schedule</a>.</p>
+
+      <h2 id="what-does-captain-do">What Does a Premier League Captain Actually Do?</h2>
+      <p>A captain leads the team on the pitch, talks to the referee and takes part in the coin toss. Off the pitch, the captain links the players and the manager. The armband gives no extra playing power, but it shapes dressing room culture far more than most fans realise.</p>
+      <p>My view is simple. The armband matters less than the voice behind it. Some captains shout all game. Others lead by example. Both styles work when the squad respects the player.</p>
+      <p>Reliability is a form of leadership too. James Tarkowski has missed only six Premier League games since joining Everton in 2022. He played every minute of the 2022/23 and 2023/24 seasons. A captain who is always there sets a standard without saying a word.<a href="https://www.premierleague.com/en/news/4706912/premier-league-club-captains-for-202627-season/" target="_blank" rel="noopener noreferrer">premierleague</a></p>
+
+      <h2 id="new-captains-this-season">Which Premier League Clubs Have a New Captain This Season?</h2>
+      <p>At least four clubs changed their captain situation for 2026/27. Everton chose James Tarkowski, Newcastle chose Dan Burn, Tottenham chose Micky van de Ven, and Manchester City made Ruben Dias their primary captain.</p>
+      <p>Each change has its own story.</p>
+      <p>Everton. Tarkowski took over when Seamus Coleman retired. Coleman spent 17 years at the club and wore the armband from 2019. That is a big pair of boots to fill.<a href="https://www.premierleague.com/en/news/4706912/premier-league-club-captains-for-202627-season/" target="_blank" rel="noopener noreferrer">premierleague</a></p>
+      <p>Newcastle. Manager Matthias Jaissle picked Burn, a boyhood Newcastle fan. The club released Burn at age 11, then signed him back from Brighton in 2022. Jaissle only arrived on 5 August 2026, after Eddie Howe resigned. This is my favourite appointment of the summer. A local lad who got rejected as a child sends a message no marketing campaign can.<a href="https://www.premierleague.com/en/news/4706912/premier-league-club-captains-for-202627-season/" target="_blank" rel="noopener noreferrer">premierleague</a><a href="https://en.wikipedia.org/wiki/2026%E2%80%9327_Premier_League" target="_blank" rel="noopener noreferrer">Wikipedia</a></p>
+      <p>Tottenham. Romero’s exit forced a decision. Van de Ven became the first team captain for 2026/27.<a href="https://topclubten.com/blog/club-captains-premier-league" target="_blank" rel="noopener noreferrer">topclubten</a></p>
+      <p>Manchester City. Bernardo Silva held the role in 2025/26, and Kyle Walker held it before him. Now Dias takes the lead.<a href="https://topclubten.com/blog/club-captains-premier-league" target="_blank" rel="noopener noreferrer">topclubten</a></p>
+
+      <h2 id="man-city-four-captains">Why Does Manchester City Have Four Captains?</h2>
+      <p>Manchester City named a four player leadership group for 2026/27. Ruben Dias leads it, alongside Erling Haaland, Marc Guehi and Gianluigi Donnarumma. The group covers defence, attack and goalkeeping, so every area of the pitch has a senior voice.</p>
+      <p>The group arrived alongside manager Enzo Maresca. I like the idea in theory. In practice, the old football rule applies. Too many leaders can mean no leader.<a href="https://www.premierleague.com/en/news/4706912/premier-league-club-captains-for-202627-season/" target="_blank" rel="noopener noreferrer">premierleague</a></p>
+      <p>Watch a bad night at a loud away ground. Who gathers the team after a goal? That moment will tell you whether the system works. My prediction is that Dias handles most of it, and the others act as backup.</p>
+
+      <h2 id="best-captain-stories">Which Captains Have the Best Stories?</h2>
+      <p>Several 2026/27 captains have unusual journeys. Lewis Dunk rose with Brighton from League One, Lewie Coyle plays for his hometown club, and Dean Henderson found his home at Crystal Palace after years on loan. These stories make the armband feel earned.</p>
+      <p>Here are the ones I would highlight:</p>
+      <ul class="blog-styled-list">
+        <li>Lewis Dunk, Brighton. He joined as a youngster in 2003 and debuted in 2010, when Brighton played in League One. I would pick Dunk to captain a relegation fight. He remembers the hard days.<a href="https://www.premierleague.com/en/news/4706912/premier-league-club-captains-for-202627-season/" target="_blank" rel="noopener noreferrer">premierleague</a></li>
+        <li>Lewie Coyle, Hull City. He joined his hometown club from Fleetwood in 2020/21 and has made over 200 appearances.<a href="https://www.premierleague.com/en/news/4706912/premier-league-club-captains-for-202627-season/" target="_blank" rel="noopener noreferrer">premierleague</a></li>
+        <li>Dean Henderson, Crystal Palace. He spent six seasons on loan from Manchester United before settling at Palace in 2023.<a href="https://www.premierleague.com/en/news/4706912/premier-league-club-captains-for-202627-season/" target="_blank" rel="noopener noreferrer">premierleague</a></li>
+        <li>Ethan Ampadu, Leeds. Leeds earned promotion in his first season as captain.<a href="https://www.premierleague.com/en/news/4706912/premier-league-club-captains-for-202627-season/" target="_blank" rel="noopener noreferrer">premierleague</a></li>
+        <li>Nathan Collins, Brentford. At 25, he is the youngest captain in the league.<a href="https://www.premierleague.com/en/news/4706912/premier-league-club-captains-for-202627-season/" target="_blank" rel="noopener noreferrer">premierleague</a></li>
+        <li>Matt Grimes, Coventry. He is the main set piece taker and a central midfield talisman. Coventry scored a Championship high 29 goals from set plays on the way to promotion.<a href="https://www.premierleague.com/en/news/4688364/how-every-premier-league-club-could-line-up-in-202627" target="_blank" rel="noopener noreferrer">premierleague</a></li>
+      </ul>
+      <p>Notice a pattern? Many of these captains earned respect slowly. Few arrived as stars. That says something about how dressing rooms pick leaders.</p>
+
+      <h2 id="mostly-defenders">Are Premier League Captains Mostly Defenders?</h2>
+      <p>Yes. By my count, 11 of the 20 captains are defenders, seven are midfielders and one is a goalkeeper. Ethan Ampadu plays across defence and midfield. No striker holds the main armband at any club.</p>
+      <p>That surprised me when I first counted. Defenders sit behind the play and see everything. They organise the line, shout instructions and hold the shape. Goalkeepers do the same job from further back.</p>
+      <p>Strikers carry a different load. They chase goals, and the armband adds mental weight they may not want. Haaland’s place in City’s leadership group is the closest thing to a forward leader this season.</p>
+      <p>My opinion? The pattern is sensible, not lazy. Clubs choose the player who talks to teammates all game. Defenders usually do.</p>
+
+      <h2 id="manager-changes">Do Captains Keep the Armband When the Manager Changes?</h2>
+      <p>Sometimes. A new manager can keep the old captain or pick a new one. Liverpool kept Virgil van Dijk after a managerial change, while Newcastle changed both manager and captain in the same summer.</p>
+      <p>Several clubs changed manager this summer, including Liverpool, Fulham, Ipswich Town, Nottingham Forest and Newcastle. Van Dijk has led Liverpool since 2023, when he succeeded Jordan Henderson, and he still held the role at the end of August 2026.<a href="https://en.wikipedia.org/wiki/2026%E2%80%9327_Premier_League" target="_blank" rel="noopener noreferrer">Wikipedia</a><a href="https://topclubten.com/blog/club-captains-premier-league" target="_blank" rel="noopener noreferrer">topclubten</a></p>
+      <p>The lesson is clear. Managers usually protect a respected captain, unless they want a clean break. Newcastle wanted one.</p>
+
+      <h2 id="captain-injured-or-leaves">What Happens If a Captain Gets Injured or Leaves?</h2>
+      <p>The vice captain takes over for the match, and the club may name a permanent replacement later. Tottenham are the best recent example. Romero’s move opened the armband for Van de Ven.</p>
+      <p>Expect more changes. I would not be surprised to see one or two more captain switches by January, because injuries and transfer windows move quickly. If that happens, I will update this guide. Bookmark it, and follow the<a href="https://www.streameastsoccer.live/live-scores">live soccer scores today</a> to spot who wears the armband on matchday.</p>
+
+      <h2 id="faq">Frequently Asked Questions</h2>
+      <div class="blog-faq-wrapper">
+        <div class="accordion">
+          <div class="accordion-item">
+            <button class="accordion-header" type="button" aria-expanded="false">
+              <span>Who is the youngest Premier League captain?</span>
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+              <p>Nathan Collins of Brentford. He is 25.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" type="button" aria-expanded="false">
+              <span>Who is the Arsenal captain in 2026/27?</span>
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+              <p>Martin Odegaard leads Arsenal.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" type="button" aria-expanded="false">
+              <span>Who captains Manchester United?</span>
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+              <p>Bruno Fernandes holds the armband at Old Trafford.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" type="button" aria-expanded="false">
+              <span>Who captains Liverpool?</span>
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+              <p>Virgil van Dijk. He took over from Jordan Henderson in 2023.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" type="button" aria-expanded="false">
+              <span>Who is the Chelsea captain?</span>
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+              <p>Reece James leads Chelsea this season.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" type="button" aria-expanded="false">
+              <span>Who replaced Seamus Coleman as Everton captain?</span>
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+              <p>James Tarkowski. Coleman retired after 17 years at the club.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" type="button" aria-expanded="false">
+              <span>Who is the Manchester City captain?</span>
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+              <p>Ruben Dias is the primary captain. Haaland, Guehi and Donnarumma share leadership duties with him.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" type="button" aria-expanded="false">
+              <span>Can a goalkeeper be a Premier League captain?</span>
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+              <p>Yes. Dean Henderson captains Crystal Palace this season.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" type="button" aria-expanded="false">
+              <span>How many matches does each Premier League captain play in a season?</span>
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+              <p>A full season has 38 league games per club, so a captain who stays fit can lead the team up to 38 times. Read how many matches are in a Premier League season for the full breakdown:<a href="https://www.streameastsoccer.live/blog/how-many-matches-in-a-premier-league">how many matches are in a Premier League season</a>.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" type="button" aria-expanded="false">
+              <span>How often do captains change?</span>
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+              <p>Often. Some clubs change every season or two. Others keep one player for a decade.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 id="final-thoughts">Final Thoughts</h2>
+      <p>So, who is the captain of every Premier League team in 2026/27? You now have all 20 names, plus the stories behind the biggest changes. Your group chat can finally rest.</p>
+      <p>My takeaway is simple. This season rewards loyalty. Dunk, Coyle, Burn and Tarkowski all show that clubs still trust players who stayed. I expect more teams to copy Manchester City’s leadership group within two years, though I doubt it will work everywhere.</p>
+      <p>For more background, read the<a href="https://en.wikipedia.org/wiki/2026%E2%80%9327_Premier_League" target="_blank" rel="noopener noreferrer">2026/27 season overview on Wikipedia</a>.</p>
+      <p>Now it’s your turn. Which captain do you rate highest, and which club picked the wrong one? Drop your answer in the comments.</p>
+    `
   }
 ];
 
@@ -402,7 +823,8 @@ export function getBlogBySlug(slug) {
   return blogPosts.find(b => 
     b.slug === cleanSlug || 
     b.slug === slug ||
-    (cleanSlug.startsWith('how-many-matches-in-a-premier-league') && b.slug === 'how-many-matches-in-a-premier-league')
+    (cleanSlug.startsWith('how-many-matches-in-a-premier-league') && b.slug === 'how-many-matches-in-a-premier-league') ||
+    (cleanSlug.startsWith('who-is-the-captain-of-every-premier-league-team') && b.slug === 'who-is-the-captain-of-every-premier-league-team')
   );
 }
 
